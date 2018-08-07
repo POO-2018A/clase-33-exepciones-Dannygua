@@ -86,15 +86,22 @@ public class Ventana extends javax.swing.JFrame {
         double numerador;
         double denominador;
         double division;
+        
         try {
                 numerador = Double.parseDouble(txtNumerador.getText());
                 denominador = Double.parseDouble(txtDenominador.getText());
                 division = numerador/denominador;
                 
                 txtRespuesta.setText(""+division);
-                }catch(NumberFormatException  ArithmeticException ){
-                        JOptionPane.showMessageDialog(null, "Error");
-                        }
+                }catch(NumberFormatException e1 ){
+                        JOptionPane.showMessageDialog(null, "Error: Ha ingresado un caracter incorrecto");
+                }catch (ArithmeticException e2){
+                        JOptionPane.showMessageDialog(null, "Error Aritmetico");
+                }finally{
+            
+            txtNumerador.setText("");
+            txtDenominador.setText("");
+        } 
         
     }//GEN-LAST:event_btnCalcularActionPerformed
 
